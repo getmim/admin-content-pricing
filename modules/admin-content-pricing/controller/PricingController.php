@@ -11,6 +11,7 @@ use LibFormatter\Library\Formatter;
 use LibForm\Library\Form;
 use LibForm\Library\Combiner;
 use LibPagination\Library\Paginator;
+use LibUser\Library\Fetcher;
 use ContentPricing\Model\Pricing;
 
 class PricingController extends \Admin\Controller
@@ -103,12 +104,18 @@ class PricingController extends \Admin\Controller
             $cond['status'] = $pcond['status'] = 1;
         if(!isset($pcond['month']))
             $cond['month'] = $pcond['month'] = date('Y-m');
-        // TODO user
 
         list($page, $rpp) = $this->req->getPager(25, 50);
 
         $params          = $this->getParams('Pricing');
         $params['total'] = 0;
+        $params['filt_users'] = [];
+
+        if(isset($cond['user'])){
+            $user = Fetcher::getOne(['id'=>$cond['user']]);
+            if($user)
+                $params['filt_users'][$user->id] = $user->fullname;
+        }
 
         $accepted_types = ['all' => 'All'];
         $types          = $this->config->libEnum->enums->{'content-pricing.type'};

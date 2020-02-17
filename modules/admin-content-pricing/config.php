@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'admin-content-pricing',
-    '__version' => '0.0.1',
+    '__version' => '0.0.2',
     '__git' => 'git@github.com:getmim/admin-content-pricing.git',
     '__license' => 'MIT',
     '__author' => [
@@ -34,9 +34,9 @@ return [
             [
                 'lib-user' => NULL
             ],
-            // [
-            //     'admin-user' => NULL
-            // ]
+            [
+                'admin-user' => NULL
+            ]
         ],
         'optional' => []
     ],

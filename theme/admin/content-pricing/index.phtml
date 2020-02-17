@@ -17,7 +17,7 @@
                 <form method="GET" class="card-body">
                     <h5 class="card-title">Search</h5>
                     <?php if($this->can_i->read_content_pricing_all): ?>
-                        <?= $form->field('user') ?>
+                        <?= $form->field('user', $filt_users) ?>
                     <?php endif; ?>
                     <?= $form->field('status') ?>
                     <?= $form->field('type', $types) ?>
