@@ -130,6 +130,10 @@
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>
+
+            <?php if($pages): ?>
+                <?= $this->partial('shared/pagination', ['pages'=>$pages, 'align'=>'right']); ?>
+            <?php endif; ?>
         </div>
     </div>
 </div>

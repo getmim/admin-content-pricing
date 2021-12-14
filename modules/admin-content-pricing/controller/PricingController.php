@@ -189,6 +189,18 @@ class PricingController extends \Admin\Controller
             $params['total'] = Pricing::count($cond);
         }
 
+        $total = $params['total'];
+        if($total > $rpp){
+            $params['pages'] = new Paginator(
+                $this->router->to('adminContentPricing'),
+                $total,
+                $page,
+                $rpp,
+                10,
+                $pcond
+            );
+        }
+
         $params['types'] = $accepted_types;
         $params['form']  = new Form('admin.content-pricing.index');
         $params['form']->validate( (object)$pcond );

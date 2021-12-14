@@ -2,7 +2,7 @@
 
 return [
     '__name' => 'admin-content-pricing',
-    '__version' => '0.0.2',
+    '__version' => '0.1.0',
     '__git' => 'git@github.com:getmim/admin-content-pricing.git',
     '__license' => 'MIT',
     '__author' => [
