@@ -2,7 +2,7 @@
 /**
  * PricingController
  * @package admin-content-pricing
- * @version 0.0.1
+ * @version 0.1.1
  */
 
 namespace AdminContentPricing\Controller;
@@ -30,7 +30,7 @@ class PricingController extends \Admin\Controller
     public function editAction(){
         if(!$this->user->isLogin())
             return $this->loginFirst(1);
-        if(!$this->can_i->set_contennt_pricing)
+        if(!$this->can_i->set_content_pricing)
             return $this->show404();
 
         $pricing = (object)[];
