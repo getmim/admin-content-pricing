@@ -81,7 +81,7 @@
                                                 </small>
                                             </td>
                                             <td class="text-right"><?= $prc->price->format() ?></td>
-                                            <td class="text-right">
+                                            <td class="text-right text-nowrap">
                                                 <?php if($this->can_i->set_content_pricing): ?>
                                                     <?php
                                                         $data = [
@@ -184,7 +184,6 @@
 
             var target = '<?= $this->router->to('adminContentPricingEdit', ['id'=>'-ID-']) ?>'.replace('-ID-', data.id);
             $('#pricing-set').attr('action', target);
-            console.log(data);
         });
     }, false);
 </script>
